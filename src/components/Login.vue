@@ -10,8 +10,8 @@
                     <el-input v-model="loginForm.username" prefix-icon="el-icon-user">
                     </el-input>
                 </el-form-item>
-                <el-form-item prop="pw">
-                    <el-input v-model="loginForm.pw" prefix-icon="el-icon-lock">
+                <el-form-item prop="password">
+                    <el-input v-model="loginForm.password" prefix-icon="el-icon-lock">
                     </el-input>
                 </el-form-item>
                 <el-form-item class="btns">
@@ -29,12 +29,12 @@ export default {
     return {
       // 登陆表单数据对象
       loginForm: {
-        username: 'z',
-        pw: '1'
+        username: 'admin',
+        password: '123456'
       },
       loginFormRules: {
         username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-        pw: [{ required: true, message: '请输入密码', trigger: 'blur' },
+        password: [{ required: true, message: '请输入密码', trigger: 'blur' },
           { min: 3, max: 10, message: '长度3-10', trigger: 'blur' }
         ]
       }
@@ -46,11 +46,12 @@ export default {
     },
     login () {
       this.$refs.loginFormRef.validate(async valid => {
-        // if (!valid) return
-        // const { data: res } = await this.$http.post('login', this.loginForm)
-        // console.log(res)
-        window.sessionStorage.setItem('token', '12345')
-        this.$message.error('error')
+        if (!valid) return
+        const { data: res } = await this.$http.post('login', this.loginForm)
+        console.log(res)
+        if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
+        window.sessionStorage.setItem('token', res.data.token)
+        this.$message.success('登陆成功')
         this.$router.push('/home')
       })
     }
