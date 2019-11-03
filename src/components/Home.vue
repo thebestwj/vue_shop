@@ -12,7 +12,7 @@
       <!-- 侧边栏 -->
       <el-aside :width="menucoll ?'64px':'200px'">
         <div class="toggle-button" @click="toggleColl">|||</div>
-        <el-menu router :collapse="menucoll" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+        <el-menu router :collapse="menucoll" class="el-menu-vertical-demo"
           background-color="#545c64" text-color="#fff" active-text-color="#ffd04b"
           :default-active="activepath">
           <!-- 一级菜单 -->
