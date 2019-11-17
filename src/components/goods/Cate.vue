@@ -166,7 +166,6 @@ export default {
         return this.$message.error(res.meta.msg)
       }
       this.parentCateList = res.data
-      console.log(res)
     },
     parentCateChanged() {
       if (this.selectedKeys.length > 0) {
@@ -176,7 +175,6 @@ export default {
         this.addForm.cat_pid = 0
         this.addForm.cat_level = 0
       }
-      console.log(this.addForm)
     },
     addCate() {
       this.$refs.addFormRef.validate(async valid => {
