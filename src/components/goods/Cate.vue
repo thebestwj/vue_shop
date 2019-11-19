@@ -37,20 +37,15 @@
       </el-pagination>
 
       <!-- 对话框 -->
-      <el-dialog title="添加分类" :close-on-click-modal="false" :visible.sync="addDialogVisible" width="50%" :before-close="addDialogClosed">
+      <el-dialog title="添加分类" :close-on-click-modal="false" :visible.sync="addDialogVisible" width="50%"
+        :before-close="addDialogClosed">
         <el-form ref="addFormRef" :rules="addFormRules" :model="addForm" label-width="80px">
           <el-form-item label="分类名称" prop="cat_name">
             <el-input v-model="addForm.cat_name"></el-input>
           </el-form-item>
           <el-form-item label="父级">
-            <el-cascader
-            select-on-change
-            filterable
-            v-model="selectedKeys"
-            :options="parentCateList"
-            :props="cascaderProps"
-            @change="parentCateChanged"
-            clearable></el-cascader>
+            <el-cascader select-on-change filterable v-model="selectedKeys" :options="parentCateList"
+              :props="cascaderProps" @change="parentCateChanged" clearable></el-cascader>
           </el-form-item>
         </el-form>
         <span slot="footer" class="dialog-footer">
@@ -179,7 +174,9 @@ export default {
     addCate() {
       this.$refs.addFormRef.validate(async valid => {
         if (!valid) return
-        const { data: res } = await this.$http.post('categories', this.addForm)
+        const {
+          data: res
+        } = await this.$http.post('categories', this.addForm)
         if (res.meta.status !== 201) {
           return this.$message.error(res.meta.msg)
         }
@@ -199,7 +196,9 @@ export default {
     margin-bottom: 20px;
     margin-top: 20px;
   }
-.el-cascader{
-  width: 100%;
-}
+
+  .el-cascader {
+    width: 100%;
+  }
+
 </style>
