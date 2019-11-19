@@ -24,7 +24,7 @@
         <el-table-column type="index"></el-table-column>
         <el-table-column label="订单编号" prop="order_number"></el-table-column>
         <el-table-column label="订单价格" prop="order_price" width="70px"></el-table-column>
-        <el-table-column label="是否付款" prop="order_pay" width="70px">
+        <el-table-column label="是否付款" prop="order_pay" width="100px">
           <template slot-scope="scope">
             <el-tag v-if="scope.row.order_pay === '0'" type="danger">未付款</el-tag>
             <el-tag v-else type="success">已付款</el-tag>
