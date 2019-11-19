@@ -74,7 +74,7 @@
       </el-form>
 
       <span slot="footer" class="dialog-footer">
-        <el-button type="success" @click="addCate">确定</el-button>
+        <el-button type="success" >确定</el-button>
         <el-button type="info" @click="this.$refs.addFormRef.resetFields()">重置</el-button>
         <el-button type="primary" @click="addDialogClosed">关闭</el-button>
       </span>
