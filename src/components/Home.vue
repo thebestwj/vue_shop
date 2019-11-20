@@ -4,7 +4,7 @@
     <el-header>
       <div>
         <img src="../assets/logo.png" height="30px">
-        <span>用户主页</span>
+        <span>电商管理后台 - 用户主页</span>
       </div>
       <el-button type="info" @click="logout">退出</el-button>
     </el-header>
@@ -12,9 +12,8 @@
       <!-- 侧边栏 -->
       <el-aside :width="menucoll ?'64px':'200px'">
         <div class="toggle-button" @click="toggleColl">|||</div>
-        <el-menu router :collapse="menucoll" class="el-menu-vertical-demo"
-          background-color="#545c64" text-color="#fff" active-text-color="#ffd04b"
-          :default-active="activepath">
+        <el-menu router :collapse="menucoll" class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff"
+          active-text-color="#ffd04b" :default-active="activepath">
           <!-- 一级菜单 -->
           <el-submenu :index="'/'+item.path" v-for="item in menulist" :key="item.id">
             <template slot="title">
@@ -22,7 +21,8 @@
               <span>{{item.authName}}</span>
             </template>
 
-            <el-menu-item @click="saveState('/home/'+subItem.path)" :index="'/home/'+subItem.path" v-for="subItem in item.children" :key="subItem.id">
+            <el-menu-item @click="saveState('/home/'+subItem.path)" :index="'/home/'+subItem.path"
+              v-for="subItem in item.children" :key="subItem.id">
               <template slot="title">
                 <i class="el-icon-menu"></i>
                 <span>{{subItem.authName}}</span>
@@ -98,11 +98,17 @@ export default {
     >div {
       display: flex;
       align-items: center;
+
+      >span {
+        margin: 0 0 0 10px;
+      }
+
     }
+
   }
 
   .el-aside {
-    background-color: #62a7d4;
+    background-color: #545c64;
   }
 
   .el-main {
@@ -118,4 +124,5 @@ export default {
     letter-spacing: 0.2em;
     cursor: pointer;
   }
+
 </style>

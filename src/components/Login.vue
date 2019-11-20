@@ -11,7 +11,7 @@
                     </el-input>
                 </el-form-item>
                 <el-form-item prop="password">
-                    <el-input v-model="loginForm.password" prefix-icon="el-icon-lock">
+                    <el-input type="password" v-model="loginForm.password" prefix-icon="el-icon-lock">
                     </el-input>
                 </el-form-item>
                 <el-form-item class="btns">
